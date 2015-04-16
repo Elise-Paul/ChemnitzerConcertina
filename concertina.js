@@ -36,9 +36,10 @@ function update_from_string(input_string){
 							  "rgb(255,0,0)","rgb(255,127,0)","rgb(255,255,0)",
 							  "rgb(127,255,0)","rgb(0,255,255)","rgb(0,127,255)",
 							  "rgb(255,0,255)","rgb(255,50,127)","rgb(120,0,100)"];
-	if ($("#mode option:selected" ).text()=='minor') {
+	/*if ($("#mode option:selected" ).text()=='minor') {
 		type = 'minor';
-	}
+	}*/
+	type = $("#mode option:selected" ).text();
 	get_chords(notes,len,type,colors);
 	for (var i = 0 ; i< len ; i ++){
 		$('text').each(function( index, value){

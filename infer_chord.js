@@ -6,11 +6,24 @@ function get_chords(notes,len,type,colors) {
 	var	left_chords='<div class="left_chords float-left">';
 	var right_chords ='<div class="right_chords float-right">';
 	var cc = [];//chord colors
-	var symbols = ['I','ii','iii','IV','V','vi','vii'];
-	if (type== 'minor') {//this should just be an offset somehow
-		symbols = ['vi','vii','I','ii','iii','IV','V'];
+	var symbols_start = ['I','ii','iii','IV','V','vi','vii'];
+	var type_to_degree = {major:'I',dorian:'ii',phrygian:'iii',lydian:'IV',mixolydian:'V',minor:'vi',locrian:'vii'};
+	var symbols = [];
+	var max = 7;
+	var temp;
+	for (var i =0 ; i < max; i++){
+		if (type_to_degree[type]== symbols_start[i]) {
+			var offset = i;
+			break;
+		}
 	}
-
+	for (var k = offset; k< (max + offset);k++){
+		temp = k;
+		if (temp >6){
+			temp = temp - 7;
+		}
+		symbols.push(symbols_start[temp]);
+	}
 	for (var i = 0; i < 7;i++){
 		cc = [];
 		bg = 'style="background-color:';
@@ -23,7 +36,7 @@ function get_chords(notes,len,type,colors) {
 		third = check_number(root+4);
 		cc[third] = bg+colors[third]+'"';
 
-		console.log(symbols[i]+" "+notes[root]+"-"+notes[second]+"-"+notes[third]);
+		//console.log(symbols[i]+" "+notes[root]+"-"+notes[second]+"-"+notes[third]);
 		chord ='<div class="chord">'+
 					'<div class="float-left side">'+
 						'<div class="scale_degree">'+symbols[root]+'</div>'+
