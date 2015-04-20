@@ -5,8 +5,8 @@ var patterns = {major:[2,2,1,2,2,2,1],
 				phrygian:[1,2,2,2,1,2,2],
 				lydian:[2,2,2,1,2,2,1],
 				mixolydian:[2,2,1,2,2,1,2],
-				locrian:[2,1,2,2,1,2,2]};
-var keyboard_config = {};//this holds buttons to notes to find chords
+				locrian:[2,1,2,2,1,2,2],
+				hungarian_minor:[2,1,3,1,1,3,1]};
 $(document).ready(function(){
 	$('#show_button').on('click',function(e){
 		e.preventDefault();
@@ -36,9 +36,7 @@ function update_from_string(input_string){
 							  "rgb(255,0,0)","rgb(255,127,0)","rgb(255,255,0)",
 							  "rgb(127,255,0)","rgb(0,255,255)","rgb(0,127,255)",
 							  "rgb(255,0,255)","rgb(255,50,127)","rgb(120,0,100)"];
-	/*if ($("#mode option:selected" ).text()=='minor') {
-		type = 'minor';
-	}*/
+
 	type = $("#mode option:selected" ).text();
 	get_chords(notes,len,type,colors);
 	for (var i = 0 ; i< len ; i ++){
@@ -51,7 +49,6 @@ function update_from_string(input_string){
 					statistics[stat]++;
 				}
 				$el = $(this).prev().prev();
-				
 
 				try{
 					color = colors[i];
@@ -63,15 +60,12 @@ function update_from_string(input_string){
 			}
 		});
 	}
-	console.log(statistics);
 }
 function get_dropdown_string(){
 	var t = $("#tonic option:selected" ).text();
 	var result =t+" ";
 	t = notes.indexOf(t);
 	var k = $("#mode option:selected" ).text();
-	//var notes = ["a","Bb","b","c","c#","d","Eb","e","f","f#","g","g#"];
-	//var patterns = {major:"2 2 1 2 2 2 1",minor:"2 1 2 2 1 2 2"};
 	var pattern_parts = patterns[k];
 	var pattern_len = pattern_parts.length;
 	var start;

@@ -1,52 +1,10 @@
 <!doctype HTML>
 <HTML>
 	<HEAD>
-		<script src="jquery-1-10.js"></script>
-		<script src="infer_chord.js"></script>
-		<script src="concertina.js"></script>
-		<style type="text/css">
-			.right {
-				float:right;
-				margin-top:10%;
-				margin-right:20%;
-			}
-			#generate {  	
-			  	height: 30px;
-  				margin-top: 10%;
-			}
-			.chord {
-				width:90px;
-				height:60px;
-			}
-			.chord .right div {
-				width:20px;
-			}
-			.chord .left div {
-				width: 80px;
-			}
-			.float-left {
-				float:left;
-			}
-			.float-right {
-				
-				float:right;
-			}
-			.scale_degree {
-				margin-top:10px;
-			}
-			.left_chords {
-				margin-right:50px;
-			}
-			.chord div {
-				font-size:20px;
-			}
-			.root,.second,.third {
-				width:24px;
-			}
-			#chords {
-				margin-top:40px;
-			}
-		</style>
+		<script src="js/jquery-1-10.js"></script>
+		<script src="js/infer_chord.js"></script>
+		<script src="js/concertina.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/concertina_styles.css">
 	</HEAD>
 	<BODY>
 		<div class="right" style="float:right">
@@ -78,6 +36,7 @@
 				<option>lydian</option>
 				<option>mixolydian</option>
 				<option>locrian</option>
+				<option>hungarian_minor</option>
 			</select>
 			<br />
 			<button id="generate">Generate chords and show</button>
@@ -86,7 +45,7 @@
 		</div>
 		
 		<div>
-			<?php echo readfile("concertina_guide.html"); ?>
+			<?php echo readfile("svg/concertina_guide.html"); ?>
 		</div>
 	</BODY>
 </HTML>

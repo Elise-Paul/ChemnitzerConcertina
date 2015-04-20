@@ -7,7 +7,7 @@ function get_chords(notes,len,type,colors) {
 	var right_chords ='<div class="right_chords float-right">';
 	var cc = [];//chord colors
 	var symbols_start = ['I','ii','iii','IV','V','vi','vii'];
-	var type_to_degree = {major:'I',dorian:'ii',phrygian:'iii',lydian:'IV',mixolydian:'V',minor:'vi',locrian:'vii'};
+	var type_to_degree = {major:'I',dorian:'ii',phrygian:'iii',lydian:'IV',mixolydian:'V',minor:'vi',locrian:'vii',hungarian_minor:'vi'};
 	var symbols = [];
 	var max = 7;
 	var temp;
@@ -63,11 +63,12 @@ function get_chords(notes,len,type,colors) {
 	function check_number(i) {
 		return (i<7)?i:i-7;
 	}
-	function get_color_from_note_name(symbol,note){
 
-	}
 	function get_name(symbol,note) {
 		note = note.charAt(0).toUpperCase() + note.slice(1);
+		if (typeof symbol ==='undefined') {
+			return note;
+		}
 		if (symbol == 'vii') {
 			return note + ' Dim'
 		} else if ('IV'.indexOf(symbol.charAt(0)) > -1){

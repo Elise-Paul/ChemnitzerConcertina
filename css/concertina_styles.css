@@ -1,0 +1,41 @@
+.right {
+	float:right;
+	margin-top:10%;
+	margin-right:20%;
+}
+#generate {  	
+  	height: 30px;
+		margin-top: 10%;
+}
+.chord {
+	width:90px;
+	height:60px;
+}
+.chord .right div {
+	width:20px;
+}
+.chord .left div {
+	width: 80px;
+}
+.float-left {
+	float:left;
+}
+.float-right {
+	
+	float:right;
+}
+.scale_degree {
+	margin-top:10px;
+}
+.left_chords {
+	margin-right:50px;
+}
+.chord div {
+	font-size:20px;
+}
+.root,.second,.third {
+	width:24px;
+}
+#chords {
+	margin-top:40px;
+}
